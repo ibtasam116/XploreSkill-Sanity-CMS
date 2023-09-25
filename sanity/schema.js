@@ -18,6 +18,7 @@ import homeContact from './schemas/homeContact'
 import coursesHeader from './schemas/coursesHeader'
 import courseProgramHeader from './schemas/courseProgramHeader'
 import bestCoursesHeader from './schemas/bestCoursesHeader'
+import bestCourses from './schemas/bestCourses'
 
 import footer from './schemas/footer'
 
@@ -40,6 +41,7 @@ export const schema = {
     coursesHeader,
     courseProgramHeader,
     bestCoursesHeader,
+    bestCourses,
 
     footer
   ],

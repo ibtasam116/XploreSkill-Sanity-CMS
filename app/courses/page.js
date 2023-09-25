@@ -27,11 +27,25 @@ const fetchCoursePrograms = async () => {
   return coursePrograms
 }
 
+const fetchBestCoursesHeader = async () => {
+  const bestCoursesHeader = await client.fetch(`*[_type == 'bestCoursesHeader']`, {}, { cache: 'no-cache' });
+  // console.log("Bbest Courses Header", bestCoursesHeader);
+  return bestCoursesHeader
+}
+
+const fetchBestCourses = async () => {
+  const bestCourses = await client.fetch(`*[_type == 'bestCourses']`, {}, { cache: 'no-cache' });
+  console.log("Best Courses", bestCourses);
+  return bestCourses
+}
+
 export default async function Courses() {
 
   const coursesHeader = await fetchCoursesHeader();
   const courseProgramHeader = await fetchCourseProgramHeader();
   const coursePrograms = await fetchCoursePrograms();
+  const bestCoursesHeader = await fetchBestCoursesHeader();
+  const bestCourses = await fetchBestCourses();
 
   return (
     <>
@@ -77,19 +91,38 @@ export default async function Courses() {
       </section>
 
       <section class="facilities">
-        <Section_header
-          sectionTitle="Best Courses"
-          sectionDescription="Lorem ipsum dolor, sit amet consectetur adipisicing elit." />
+        {
+          bestCoursesHeader.map((content) => {
+            return (
+              <>
+                <Section_header
+                  sectionTitle={content.heading}
+                  sectionDescription={content.description}
+                />
+              </>
+            )
+          })
+        }
 
 
         <div class="row">
 
-          <Home_facilities_card
-            imgSrc={img1}
-            title="Web Development"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam." />
+          {
+            bestCourses.map((content) => {
+              return (
+                <>
+                  <Home_facilities_card
+                    imgSrc={img1}
+                    title={content.heading}
+                    description={content.description}
+                  />
+                </>
+              )
+            })
+          }
 
-          <Home_facilities_card
+
+          {/* <Home_facilities_card
             imgSrc={img2}
             title="Artificial Intelligence"
             description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam." />
@@ -97,7 +130,7 @@ export default async function Courses() {
           <Home_facilities_card
             imgSrc={img3}
             title="Data Science"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam." />
+            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam." /> */}
 
 
 
