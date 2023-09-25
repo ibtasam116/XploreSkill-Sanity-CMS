@@ -6,8 +6,46 @@ import Blog_para from "./(components)/blog_para/blog_para";
 import Blog_input from "./(components)/blog_input/blog_input";
 import Button from "../(components)/button/button";
 import Blog_categories from "./(components)/blog_categories/blog_categories";
+import { client } from "@/sanity/lib/client";
 
-export default function Blog() {
+const fetchBlogHeader = async () => {
+    const blogHeader = await client.fetch(`*[_type == 'blogHeader']`, {}, { cache: 'no-cache' });
+    console.log("Blog Header", blogHeader);
+    return blogHeader
+}
+
+const fetchBlogCertificateAndOnlineProgram = async () => {
+    const blogCertificateAndOnlineProgram = await client.fetch(`*[_type == 'blogCertificateAndOnlineProgram']`, {}, { cache: 'no-cache' });
+    console.log("Blog Certificate And Online Program", blogCertificateAndOnlineProgram);
+    return blogCertificateAndOnlineProgram
+}
+
+const fetchBlogComment = async () => {
+    const blogComment = await client.fetch(`*[_type == 'blogComment']`, {}, { cache: 'no-cache' });
+    console.log("Blog Comment", blogComment);
+    return blogComment
+}
+
+const fetchBlogPostHeading = async () => {
+    const blogPostHeading = await client.fetch(`*[_type == 'blogPostHeading']`, {}, { cache: 'no-cache' });
+    console.log("Blog Post Heading", blogPostHeading);
+    return blogPostHeading
+}
+
+const fetchBlogPosts = async () => {
+    const blogPosts = await client.fetch(`*[_type == 'blogPosts']`, {}, { cache: 'no-cache' });
+    console.log("Blog Posts", blogPosts);
+    return blogPosts
+}
+
+export default async function Blog() {
+
+    const blogHeader = await fetchBlogHeader();
+    const blogCertificateAndOnlineProgram = await fetchBlogCertificateAndOnlineProgram();
+    const blogComment = await fetchBlogComment();
+    const blogPostHeading = await fetchBlogPostHeading();
+    const blogPosts = await fetchBlogPosts();
+
     return (
         <>
             <Navbar header_title="OUR POST" />

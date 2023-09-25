@@ -20,11 +20,21 @@ import courseProgramHeader from './schemas/courseProgramHeader'
 import bestCoursesHeader from './schemas/bestCoursesHeader'
 import bestCourses from './schemas/bestCourses'
 
+import aboutUsHeader from './schemas/aboutUsHeader'
+import aboutUsContent from './schemas/aboutUsContent'
+
+import blogHeader from './schemas/blogHeader'
+import blogCertificateAndOnlineProgram from './schemas/blogCertificateAndOnlineProgram'
+import blogComment from './schemas/blogComment'
+import blogPostHeading from './schemas/blogPostHeading'
+import blogPosts from './schemas/blogPosts'
+
 import footer from './schemas/footer'
 
 export const schema = {
   // types: [post, author, category, blockContent],
   types: [
+
     services,
     navLinks,
     homeHeader,
@@ -42,6 +52,15 @@ export const schema = {
     courseProgramHeader,
     bestCoursesHeader,
     bestCourses,
+
+    aboutUsHeader,
+    aboutUsContent,
+
+    blogHeader,
+    blogCertificateAndOnlineProgram,
+    blogComment,
+    blogPostHeading,
+    blogPosts,
 
     footer
   ],

@@ -75,7 +75,7 @@ const fetchTestimonials = async () => {
 
 const fetchHomeContact = async () => {
   const homeContact = await client.fetch(`*[_type == 'homeContact']`, {}, { cache: 'no-cache' });
-  console.log("Home Contact", homeContact);
+  // console.log("Home Contact", homeContact);
   return homeContact
 }
 

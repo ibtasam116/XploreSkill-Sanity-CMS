@@ -11,7 +11,7 @@ import { client } from "@/sanity/lib/client";
 
 const fetchCoursesHeader = async () => {
   const coursesHeader = await client.fetch(`*[_type == 'coursesHeader']`, {}, { cache: 'no-cache' });
-  console.log("Courses Header", coursesHeader);
+  // console.log("Courses Header", coursesHeader);
   return coursesHeader
 }
 
@@ -35,7 +35,7 @@ const fetchBestCoursesHeader = async () => {
 
 const fetchBestCourses = async () => {
   const bestCourses = await client.fetch(`*[_type == 'bestCourses']`, {}, { cache: 'no-cache' });
-  console.log("Best Courses", bestCourses);
+  // console.log("Best Courses", bestCourses);
   return bestCourses
 }
 
@@ -131,8 +131,6 @@ export default async function Courses() {
             imgSrc={img3}
             title="Data Science"
             description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam." /> */}
-
-
 
         </div>
       </section>
