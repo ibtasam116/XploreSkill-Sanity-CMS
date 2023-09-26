@@ -26,11 +26,12 @@ import aboutUsContent from './schemas/aboutUsContent'
 import blogHeader from './schemas/blogHeader'
 import blogCertificateAndOnlineProgram from './schemas/blogCertificateAndOnlineProgram'
 import blogCertificateDetailParas from './schemas/blogCertificateDetailParas'
-import blogCommentHeader from './schemas/blogCommentHeader'
-import blogCommentInputFields from './schemas/blogCommentInputFields'
-import blogCommentInputTextAreaBtn from './schemas/blogCommentInputTextAreaBtn'
 import blogPostHeading from './schemas/blogPostHeading'
 import blogPosts from './schemas/blogPosts'
+
+import contactUsHeader from './schemas/contactUsHeader'
+import contactUsMap from './schemas/contactUsMap'
+import contactUsAddressContactEmail from './schemas/contactUsAddressContactEmail'
 
 import footer from './schemas/footer'
 
@@ -63,11 +64,12 @@ export const schema = {
     blogHeader,
     blogCertificateAndOnlineProgram,
     blogCertificateDetailParas,
-    blogCommentHeader,
-    blogCommentInputFields,
-    blogCommentInputTextAreaBtn,
     blogPostHeading,
     blogPosts,
+
+    contactUsHeader,
+    contactUsMap,
+    contactUsAddressContactEmail,
 
     footer
   ],

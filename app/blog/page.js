@@ -22,36 +22,30 @@ const fetchBlogCertificateAndOnlineProgram = async () => {
 
 const fetchBlogCertificateDetailParas = async () => {
     const blogCertificateDetailParas = await client.fetch(`*[_type == 'blogCertificateDetailParas']`, {}, { cache: 'no-cache' });
-    console.log("Blog Certificate Detail Paragraphs", blogCertificateDetailParas);
+    // console.log("Blog Certificate Detail Paragraphs", blogCertificateDetailParas);
     return blogCertificateDetailParas
 }
 
-// const fetchBlogComment = async () => {
-//     const blogComment = await client.fetch(`*[_type == 'blogComment']`, {}, { cache: 'no-cache' });
-//     console.log("Blog Comment", blogComment);
-//     return blogComment
-// }
+const fetchBlogPostHeading = async () => {
+    const blogPostHeading = await client.fetch(`*[_type == 'blogPostHeading']`, {}, { cache: 'no-cache' });
+    console.log("Blog Post Heading", blogPostHeading);
+    return blogPostHeading
+}
 
-// const fetchBlogPostHeading = async () => {
-//     const blogPostHeading = await client.fetch(`*[_type == 'blogPostHeading']`, {}, { cache: 'no-cache' });
-//     console.log("Blog Post Heading", blogPostHeading);
-//     return blogPostHeading
-// }
+const fetchBlogPosts = async () => {
+    const blogPosts = await client.fetch(`*[_type == 'blogPosts']`, {}, { cache: 'no-cache' });
+    console.log("Blog Posts", blogPosts);
+    return blogPosts
+}
 
-// const fetchBlogPosts = async () => {
-//     const blogPosts = await client.fetch(`*[_type == 'blogPosts']`, {}, { cache: 'no-cache' });
-//     console.log("Blog Posts", blogPosts);
-//     return blogPosts
-// }
 
 export default async function Blog() {
 
     const blogHeader = await fetchBlogHeader();
     const blogCertificateAndOnlineProgram = await fetchBlogCertificateAndOnlineProgram();
     const blogCertificateDetailParas = await fetchBlogCertificateDetailParas();
-    // const blogComment = await fetchBlogComment();
-    // const blogPostHeading = await fetchBlogPostHeading();
-    // const blogPosts = await fetchBlogPosts();
+    const blogPostHeading = await fetchBlogPostHeading();
+    const blogPosts = await fetchBlogPosts();
 
     return (
         <>
@@ -114,13 +108,28 @@ export default async function Blog() {
 
                     <div class="blog-right">
 
-                        <h3>Post Categories</h3>
+                        {
+                            blogPostHeading.map((post) => {
+                                return (
+                                    <>
+                                        <h3>{post.heading}</h3>
+                                    </>
+                                )
+                            })
+                        }
 
-                        <Blog_categories cate="Business Analytics" num="12" />
-                        <Blog_categories cate="Machine Learning" num="29" />
-                        <Blog_categories cate="Computer Science" num="15" />
-                        <Blog_categories cate="Data Analytics" num="22" />
-                        <Blog_categories cate="Full Stack" num="20" />
+                        {
+                            blogPosts.map((post) => {
+                                return (
+                                    <>
+                                        <Blog_categories
+                                            cate={post.postName}
+                                            num={post.postLevel}
+                                        />
+                                    </>
+                                )
+                            })
+                        }
 
                     </div>
                 </div>

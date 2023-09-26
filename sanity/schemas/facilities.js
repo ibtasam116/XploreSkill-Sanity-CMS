@@ -4,7 +4,7 @@ const facilities = {
     type: 'document',
     fields: [
         {
-            name: 'image',
+            name: 'mainImage',
             title: 'Image',
             type: 'image',
             option: {
