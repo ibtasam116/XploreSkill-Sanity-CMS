@@ -25,6 +25,7 @@ import aboutUsContent from './schemas/aboutUsContent'
 
 import blogHeader from './schemas/blogHeader'
 import blogCertificateAndOnlineProgram from './schemas/blogCertificateAndOnlineProgram'
+import blogCertificateDetailParas from './schemas/blogCertificateDetailParas'
 import blogComment from './schemas/blogComment'
 import blogPostHeading from './schemas/blogPostHeading'
 import blogPosts from './schemas/blogPosts'
@@ -58,6 +59,7 @@ export const schema = {
 
     blogHeader,
     blogCertificateAndOnlineProgram,
+    blogCertificateDetailParas,
     blogComment,
     blogPostHeading,
     blogPosts,
