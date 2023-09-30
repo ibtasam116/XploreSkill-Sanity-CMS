@@ -1,11 +1,10 @@
+import { urlForImage } from "@/sanity/lib/image";
 import Home_facilities_card from "../(components)/home_facilities_card/home_facilities_card";
 import Home_program_card from "../(components)/home_program_card/home_program_card";
 import Navbar from "../(components)/navbar/navbar";
 import Section_header from "../(components)/section_header/section_header";
 
 import img1 from '../../public/img/course1.png'
-import img2 from '../../public/img/course2.png'
-import img3 from '../../public/img/course3.png'
 
 import { client } from "@/sanity/lib/client";
 
@@ -112,7 +111,8 @@ export default async function Courses() {
               return (
                 <>
                   <Home_facilities_card
-                    imgSrc={img1}
+                    imgSrc={urlForImage(content.image).url()}
+                    imgAlt={content.image.alt}
                     title={content.heading}
                     description={content.description}
                   />

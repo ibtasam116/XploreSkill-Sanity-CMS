@@ -6,7 +6,17 @@ const testimonials = {
         {
             name: 'image',
             title: 'Image',
-            type: 'image'
+            type: 'image',
+            option: {
+                hotspot: true,
+            },
+            fields: [
+                {
+                    name: 'alt',
+                    title: 'Alt Text',
+                    type: 'string'
+                }
+            ]
         },
         {
             name: 'description',
@@ -16,7 +26,7 @@ const testimonials = {
         {
             name: 'heading',
             title: 'Heading',
-            type: 'string'
+            type: 'string',
         },
     ],
 }

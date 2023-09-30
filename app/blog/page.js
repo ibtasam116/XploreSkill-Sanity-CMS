@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Navbar from "../(components)/navbar/navbar";
 
-import img from "../../public/img/post.png"
 import Blog_para from "./(components)/blog_para/blog_para";
 import Blog_input from "./(components)/blog_input/blog_input";
 import Button from "../(components)/button/button";
 import Blog_categories from "./(components)/blog_categories/blog_categories";
 import { client } from "@/sanity/lib/client";
+import { urlForImage } from "@/sanity/lib/image";
 
 const fetchBlogHeader = async () => {
     const blogHeader = await client.fetch(`*[_type == 'blogHeader']`, {}, { cache: 'no-cache' });
@@ -60,8 +60,6 @@ export default async function Blog() {
                 })
             }
 
-            {/* <Navbar header_title="OUR POST" /> */}
-
             <section class="blog-content">
                 <div class="row">
                     <div class="blog-left">
@@ -70,10 +68,13 @@ export default async function Blog() {
                             blogCertificateAndOnlineProgram.map((content) => {
                                 return (
                                     <>
-                                        {/* <h2>{content.heading}</h2> */}
                                         <h5>{content.date}</h5>
 
-                                        <Image src={img} width={300} height={470} />
+                                        <img 
+                                        src={urlForImage(content.image).url()}
+                                        alt={content.image.alt} 
+                                        width={300} 
+                                        height={470} />
                                     </>
                                 )
                             })

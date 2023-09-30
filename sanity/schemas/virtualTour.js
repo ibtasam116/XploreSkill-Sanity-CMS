@@ -12,6 +12,16 @@ const virtualTour = {
             name: 'image',
             title: 'Image',
             type: 'image',
+            option: {
+                hotspot: true,
+            },
+            fields: [
+                {
+                    name: 'alt',
+                    title: 'Alt Text',
+                    type: 'string'
+                }
+            ]
         },
     ],
 }

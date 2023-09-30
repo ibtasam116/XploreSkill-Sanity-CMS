@@ -7,19 +7,13 @@ import Home_program_card from './(components)/home_program_card/home_program_car
 import Section_header from './(components)/section_header/section_header';
 
 import Home_tour_card from './(components)/home_tour_card/home_tour_card';
-import img1 from "../public/img/Campus1.png";
-import img2 from "../public/img/Campus2.png";
-import img3 from "../public/img/Campus3.png";
 
 import Home_facilities_card from './(components)/home_facilities_card/home_facilities_card';
-import img4 from "../public/img/libary.png";
-import img5 from "../public/img/playground.png";
-import img6 from "../public/img/food.png";
 
 import Home_student_card from './(components)/home_student_card/home_student_card';
-import studentImg from "../public/img/user.png"
 
 import Button from './(components)/button/button';
+
 import Home_verticalLine from './(components)/home_verticalLine/home_verticalLine';
 
 import { client } from '@/sanity/lib/client';
@@ -156,14 +150,15 @@ export default async function Home() {
             virtualTour.map((tour) => {
               return (
                 <>
-                  <Home_tour_card ImgSrc={tour.image.url} title={tour.title} />
+                  <Home_tour_card
+                    ImgSrc={urlForImage(tour.image).url()}
+                    imgAlt={tour.image.alt}
+                    title={tour.title} />
                 </>
               )
             })
           }
-          {/* <Home_tour_card ImgSrc={img1} title="DELHI" />
-          <Home_tour_card ImgSrc={img2} title="HYDERABAD" />
-          <Home_tour_card ImgSrc={img3} title="MUMBAI" /> */}
+
         </div>
 
       </section>
@@ -192,8 +187,8 @@ export default async function Home() {
               return (
                 <>
                   <Home_facilities_card
-                    imgSrc={img4}
-                    // imgSrc={urlForImage(facilitie.image).url()}
+                    imgSrc={urlForImage(facilitie.mainImage).url()}
+                    imgAlt={facilitie.mainImage.alt}
                     title={facilitie.heading}
                     description={facilitie.description} />
                 </>
@@ -201,9 +196,6 @@ export default async function Home() {
             })
           }
 
-          {/* <Home_facilities_card imgSrc={img4} title="Best Libary" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam." />
-          <Home_facilities_card imgSrc={img5} title="Athletics" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam." />
-          <Home_facilities_card imgSrc={img6} title="Tasty and Healthy Food" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio omnis asperiores atque aperiam." /> */}
         </div>
 
       </section>
@@ -233,7 +225,8 @@ export default async function Home() {
               return (
                 <>
                   <Home_student_card
-                    studentImgSrc={studentImg}
+                    studentImgSrc={urlForImage(testimonial.image).url()}
+                    imgAlt={testimonial.image.alt}
                     studentDescription={testimonial.description}
                     studentName={testimonial.heading}
                     star_className="fa-star"
@@ -244,9 +237,6 @@ export default async function Home() {
             })
           }
 
-          {/* <Home_student_card studentImgSrc={studentImg} studentDescription="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi maiores in nostrum rerum voluptatem
-                        praesentium veritatis alias omnis voluptate nisi aperiam, voluptatum quibusdam itaque a
-                        deserunt. In quia repellat maxime." studentName="Student Name" star_className="fa-star-half-alt" /> */}
         </div>
       </section>
 

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Navbar from "../(components)/navbar/navbar";
-import img from "../../public/img/about.png"
 import Button from "../(components)/button/button";
 import { client } from "@/sanity/lib/client";
+import { urlForImage } from "@/sanity/lib/image";
 
 const fetcAboutUsHeader = async () => {
     const aboutUsHeader = await client.fetch(`*[_type == 'aboutUsHeader']`, {}, { cache: 'no-cache' });
@@ -46,7 +46,11 @@ export default async function About() {
                                         <Button btnHref={content.btnHref} btnClass="btn" btnTitle={content.btnText} />
                                     </div>
                                     <div className="about-col">
-                                        <Image src={img} width={1000} height={340} />
+                                        <img
+                                            src={urlForImage(content.image).url()}
+                                            alt={content.image.alt}
+                                            width={1000}
+                                            height={340} />
                                     </div>
                                 </>
                             )
